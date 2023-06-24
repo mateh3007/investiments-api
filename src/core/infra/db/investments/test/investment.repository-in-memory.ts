@@ -1,12 +1,9 @@
 import { InvestmentEntity } from "../../../../investments/entity/investment.entity";
 import { IInvestmentRepository } from "../../../../investments/entity/investment.irepository";
+import { prisma } from "../../ORM/prisma/prisma";
 
 export class InvestmentRepositoryInMemory implements IInvestmentRepository {
-  repository: InvestmentEntity[] = [];
-
-  async create(data: InvestmentEntity): Promise<void> {
-    this.repository.push(data);
-  }
+  async create(data: InvestmentEntity): Promise<void> {}
   getOne(data: string): Promise<CreateInvestmentDtoOutput> {
     throw new Error("Method not implemented.");
   }
