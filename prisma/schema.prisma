@@ -11,8 +11,8 @@ datasource db {
 }
 
 model investment {
-  id Int @unique @default(autoincrement())
-  FII String  
+  id String @unique @default(uuid())
+  FII String @unique
   initialValue Int
   numberOfShares Int
   finalValue Int 
