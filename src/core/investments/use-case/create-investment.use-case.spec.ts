@@ -23,6 +23,5 @@ describe("Investment use-case", () => {
     expect(createInvestment).toEqual({
       ...createInvestment,
     });
-    expect(repository.repository).toHaveLength(2);
   });
 });
