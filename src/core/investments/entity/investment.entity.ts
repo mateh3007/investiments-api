@@ -5,13 +5,16 @@ export type investmentProps = {
 };
 
 export class InvestmentEntity {
-  public readonly props: Required<investmentProps>;
-  public readonly finalValue: number;
+  public FLL: string;
+  public initialValue: number;
+  public numberOfShares: number;
+  public finalValue: number;
+
   constructor(data: investmentProps) {
-    this.props = {
-      ...data,
-    };
-    this.finalValue = this.props.initialValue * this.props.numberOfShares;
+    this.FLL = data.FLL;
+    this.initialValue = data.initialValue;
+    this.numberOfShares = data.numberOfShares;
+    this.finalValue = this.initialValue * this.numberOfShares;
   }
 
   updateFLL(data: string) {
@@ -20,38 +23,43 @@ export class InvestmentEntity {
 
   updateInitialValue(data: number) {
     this.initialValue = data;
-  }
-
-  addMoreFunds(data: number) {
-    const funds = data;
-    this.initialValue += funds;
+    this.finalValue = data * this.numberOfShares;
   }
 
   updateNumberOfShares(data: number) {
-    this.numberOfShare = data;
+    this.numberOfShares = data;
+    this.finalValue = data * this.initialValue;
   }
 
-  get FLL(): string {
+  get _FLL(): string {
     return this.FLL;
   }
 
-  private set FLL(data: string) {
+  private set _FLL(data: string) {
     this.FLL = data;
   }
 
-  get initialValue(): number {
+  get _initialValue(): number {
     return this.initialValue;
   }
 
-  private set initialValue(data: number) {
+  private set _initialValue(data: number) {
     this.initialValue = data;
   }
 
-  get numberOfShare(): number {
-    return this.numberOfShare;
+  get _numberOfShares(): number {
+    return this.numberOfShares;
   }
 
-  private set numberOfShare(data: number) {
-    this.numberOfShare = data;
+  private set _numberOfShares(data: number) {
+    this.numberOfShares = data;
+  }
+
+  get _finalValue(): number {
+    return this.finalValue;
+  }
+
+  private set _finalValue(data: number) {
+    this.finalValue = data;
   }
 }
