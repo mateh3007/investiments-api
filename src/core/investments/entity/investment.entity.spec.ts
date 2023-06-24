@@ -2,7 +2,7 @@ import { InvestmentEntity, investmentProps } from "./investment.entity";
 
 describe("Investment entity", () => {
   const investmentProps: investmentProps = {
-    FLL: "AAAA",
+    FII: "AAAA",
     initialValue: 10,
     numberOfShares: 2,
   };
@@ -20,7 +20,7 @@ describe("Investment entity", () => {
     investment.updateNumberOfShares(3);
 
     expect(investment).toEqual({
-      FLL: "AAAA",
+      FII: "AAAA",
       initialValue: 10,
       numberOfShares: 3,
       finalValue: 30,
@@ -32,7 +32,7 @@ describe("Investment entity", () => {
     investment.updateInitialValue(30);
 
     expect(investment).toEqual({
-      FLL: "AAAA",
+      FII: "AAAA",
       initialValue: 30,
       numberOfShares: 2,
       finalValue: 60,

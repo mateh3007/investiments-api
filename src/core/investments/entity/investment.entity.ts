@@ -1,24 +1,24 @@
 export type investmentProps = {
-  FLL: string;
+  FII: string;
   initialValue: number;
   numberOfShares: number;
 };
 
 export class InvestmentEntity {
-  public FLL: string;
+  public FII: string;
   public initialValue: number;
   public numberOfShares: number;
   public finalValue: number;
 
   constructor(data: investmentProps) {
-    this.FLL = data.FLL;
+    this.FII = data.FII;
     this.initialValue = data.initialValue;
     this.numberOfShares = data.numberOfShares;
     this.finalValue = this.initialValue * this.numberOfShares;
   }
 
-  updateFLL(data: string) {
-    this.FLL = data;
+  updateFII(data: string) {
+    this.FII = data;
   }
 
   updateInitialValue(data: number) {
@@ -31,12 +31,12 @@ export class InvestmentEntity {
     this.finalValue = data * this.initialValue;
   }
 
-  get _FLL(): string {
-    return this.FLL;
+  get _FII(): string {
+    return this.FII;
   }
 
-  private set _FLL(data: string) {
-    this.FLL = data;
+  private set _FII(data: string) {
+    this.FII = data;
   }
 
   get _initialValue(): number {
