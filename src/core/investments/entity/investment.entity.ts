@@ -31,6 +31,16 @@ export class InvestmentEntity {
     this.finalValue = data * this.initialValue;
   }
 
+  toJSON(data: InvestmentEntity) {
+    const { FII, initialValue, numberOfShares, finalValue } = data;
+    return {
+      FII,
+      initialValue,
+      numberOfShares,
+      finalValue,
+    };
+  }
+
   get _FII(): string {
     return this.FII;
   }
