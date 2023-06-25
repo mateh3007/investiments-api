@@ -16,4 +16,7 @@ model investment {
   initialValue Int
   numberOfShares Int
   finalValue Int 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
 }

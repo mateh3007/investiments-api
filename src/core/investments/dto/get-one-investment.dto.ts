@@ -1,10 +1,8 @@
-type CreateInvestmentDtoInput = {
+export type getOneInvestmentDtoInput = {
   FII: string;
-  initialValue: number;
-  numberOfShares: number;
 };
 
-type CreateInvestmentDtoOutput = {
+export type getOneInvestmentDtoOutput = {
   FII: string;
   initialValue: number;
   numberOfShares: number;
