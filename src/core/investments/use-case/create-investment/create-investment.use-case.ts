@@ -1,5 +1,5 @@
-import { InvestmentEntity } from "../entity/investment.entity";
-import { IInvestmentRepository } from "../entity/investment.irepository";
+import { InvestmentEntity } from "../../entity/investment.entity";
+import { IInvestmentRepository } from "../../entity/investment.irepository";
 
 export class CreateInvestmentUseCase {
   constructor(private readonly repository: IInvestmentRepository) {}

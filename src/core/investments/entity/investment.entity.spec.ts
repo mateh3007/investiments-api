@@ -9,6 +9,7 @@ describe("Investment entity", () => {
 
   it("Should able create an investment", () => {
     const investment = new InvestmentEntity(investmentProps);
+    console.log(investment);
     expect(investment).toEqual({
       ...investmentProps,
       finalValue: 20,
