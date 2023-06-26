@@ -9,6 +9,7 @@ export class InvestmentEntity {
   public initialValue: number;
   public numberOfShares: number;
   public finalValue: number;
+  public totalEarnings?: number;
 
   constructor(data: investmentProps) {
     this.FII = data.FII;
@@ -71,5 +72,13 @@ export class InvestmentEntity {
 
   private set _finalValue(data: number) {
     this.finalValue = data;
+  }
+
+  get _totalEarnings(): number | undefined {
+    return this.totalEarnings;
+  }
+
+  private set _totalEarnings(data: number) {
+    this.totalEarnings = data;
   }
 }
