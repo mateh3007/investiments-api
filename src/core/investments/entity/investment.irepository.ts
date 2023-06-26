@@ -9,5 +9,4 @@ export interface IInvestmentRepository {
   ): Promise<CreateInvestmentDtoOutput | null>;
   update(data: updateInvestmentDtoInput): Promise<CreateInvestmentDtoInput>;
   getAll(): Promise<getAllInvestmentsDtoOutput[]>;
-  reqEarnings(payload: string): Promise<number>;
 }

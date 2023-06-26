@@ -56,17 +56,17 @@ export class InvestmentRepositoryInMemory implements IInvestmentRepository {
     });
   }
 
-  async reqEarnings(payload: string): Promise<number> {
-    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${payload}.SA&apikey=QUDT2RRX5P8KO4ZZ`;
+  // async reqEarnings(payload: string): Promise<number> {
+  //   const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${payload}.SA&apikey=QUDT2RRX5P8KO4ZZ`;
 
-    const response = await axios.get(url);
-    const data = response.data;
-    const key = data["Time Series (Daily)"];
-    const firstObjectKey = Object.keys(key)[0];
-    const firstObject = key[firstObjectKey];
-    const closeValue = Object.keys(firstObject)[3];
-    const finalValue = firstObject[closeValue];
+  //   const response = await axios.get(url);
+  //   const data = response.data;
+  //   const key = data["Time Series (Daily)"];
+  //   const firstObjectKey = Object.keys(key)[0];
+  //   const firstObject = key[firstObjectKey];
+  //   const closeValue = Object.keys(firstObject)[3];
+  //   const finalValue = firstObject[closeValue];
 
-    return parseFloat(finalValue);
-  }
+  //   return parseFloat(finalValue);
+  // }
 }

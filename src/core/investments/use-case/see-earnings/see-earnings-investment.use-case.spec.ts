@@ -2,12 +2,10 @@ import { InvestmentRepositoryInMemory } from "../../../../infra/db/investments/t
 import { SeeEarningsInvestmentUseCase } from "./see-earnings-investment.use-case";
 describe("See earnings investment", () => {
   it("Should able return all investments", async () => {
-    const repository = new InvestmentRepositoryInMemory();
-    const useCase = new SeeEarningsInvestmentUseCase(repository);
-    const earning = await repository.reqEarnings("CPTS11");
-
+    const useCase = new SeeEarningsInvestmentUseCase(
+      new InvestmentRepositoryInMemory()
+    );
     const output = await useCase.handle();
-    console.log(output);
-    expect(earning).toEqual(82.82);
+    expect(output).toBeTruthy();
   });
 });
