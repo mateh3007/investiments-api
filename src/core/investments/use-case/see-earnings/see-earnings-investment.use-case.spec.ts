@@ -6,7 +6,6 @@ describe("See earnings investment", () => {
       new InvestmentRepositoryInMemory()
     );
     const output = await useCase.handle();
-    console.log(output);
     expect(output).toBeTruthy();
   });
 });

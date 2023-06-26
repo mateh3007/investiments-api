@@ -1,3 +1,7 @@
+import {
+  CreateInvestmentDtoInput,
+  CreateInvestmentDtoOutput,
+} from "../../dto/create-investment.dto";
 import { InvestmentEntity } from "../../entity/investment.entity";
 import { IInvestmentRepository } from "../../entity/investment.irepository";
 
@@ -13,7 +17,7 @@ export class CreateInvestmentUseCase {
       ...investment,
       createdAt: new Date(),
       updatedAt: new Date(),
-      deletedAt: new Date(),
+      deletedAt: null,
     };
   }
 }

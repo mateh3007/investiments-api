@@ -1,4 +1,4 @@
-type getAllInvestmentsDtoOutput = {
+export type getAllInvestmentsDtoOutput = {
   FII: string;
   initialValue: number;
   numberOfShares: number;

@@ -28,7 +28,8 @@
     "yn": "^3.1.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "ts-node src/infra/adapters/http/express/server.ts"
   },
   "repository": {
     "type": "git",
