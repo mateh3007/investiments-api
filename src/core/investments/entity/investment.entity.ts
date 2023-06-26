@@ -16,6 +16,7 @@ export class InvestmentEntity {
     this.initialValue = data.initialValue;
     this.numberOfShares = data.numberOfShares;
     this.totalExpenses = this.initialValue * this.numberOfShares;
+    this.totalEarnings = 0;
   }
 
   updateFII(data: string) {

@@ -7,6 +7,7 @@ export class SeeEarningsInvestmentUseCase {
     const investmentFIIList = await Promise.all(
       investments.map(async (item) => {
         const res = await alphaVantage(item.FII, 3);
+        console.log(res);
         return {
           ...item,
           closeValue: res,
@@ -17,11 +18,11 @@ export class SeeEarningsInvestmentUseCase {
     const updatedInvestmentList = Promise.all(
       investmentFIIList.map((item) => {
         const closeValueExpression = item.closeValue * item.numberOfShares;
-        const totalEarnings = item.finalValue - closeValueExpression;
+        item.totalEarnings = item.totalExpenses - closeValueExpression;
 
         return {
           ...item,
-          totalEarnings,
+          totalEarnings: item.totalEarnings,
         };
       })
     );

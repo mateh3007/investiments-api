@@ -1,0 +1,2 @@
+erros para resolver:
+esta retornando deleted como data definida ao invés de null

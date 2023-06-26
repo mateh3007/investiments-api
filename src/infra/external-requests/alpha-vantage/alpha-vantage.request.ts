@@ -26,7 +26,7 @@ export async function alphaVantage(
     }
 
     const selectedValueData = mostRecentValueData[selectedValue];
-    return parseFloat(selectedValueData);
+    return parseFloat(selectedValueData || 0);
   } catch (err) {
     console.error(err);
   }
