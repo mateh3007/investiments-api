@@ -8,14 +8,14 @@ export class InvestmentEntity {
   public FII: string;
   public initialValue: number;
   public numberOfShares: number;
-  public finalValue: number;
+  public totalExpenses: number;
   public totalEarnings?: number;
 
   constructor(data: investmentProps) {
     this.FII = data.FII;
     this.initialValue = data.initialValue;
     this.numberOfShares = data.numberOfShares;
-    this.finalValue = this.initialValue * this.numberOfShares;
+    this.totalExpenses = this.initialValue * this.numberOfShares;
   }
 
   updateFII(data: string) {
@@ -24,21 +24,21 @@ export class InvestmentEntity {
 
   updateInitialValue(data: number) {
     this.initialValue = data;
-    this.finalValue = data * this.numberOfShares;
+    this.totalExpenses = data * this.numberOfShares;
   }
 
   updateNumberOfShares(data: number) {
     this.numberOfShares = data;
-    this.finalValue = data * this.initialValue;
+    this.totalExpenses = data * this.initialValue;
   }
 
   toJSON(data: InvestmentEntity) {
-    const { FII, initialValue, numberOfShares, finalValue } = data;
+    const { FII, initialValue, numberOfShares, totalExpenses } = data;
     return {
       FII,
       initialValue,
       numberOfShares,
-      finalValue,
+      totalExpenses,
     };
   }
 
@@ -67,11 +67,11 @@ export class InvestmentEntity {
   }
 
   get _finalValue(): number {
-    return this.finalValue;
+    return this.totalExpenses;
   }
 
   private set _finalValue(data: number) {
-    this.finalValue = data;
+    this.totalExpenses = data;
   }
 
   get _totalEarnings(): number | undefined {
