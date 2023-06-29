@@ -1,85 +1,53 @@
 export type investmentProps = {
-  FII: string;
-  initialValue: number;
-  numberOfShares: number;
+  symbol: string;
+  totalQuotas: number;
+  openingPrice: number;
 };
 
 export class InvestmentEntity {
-  public FII: string;
-  public initialValue: number;
-  public numberOfShares: number;
-  public totalExpenses: number;
-  public totalEarnings?: number;
+  public readonly openingPosition: number;
 
-  constructor(data: investmentProps) {
-    this.FII = data.FII;
-    this.initialValue = data.initialValue;
-    this.numberOfShares = data.numberOfShares;
-    this.totalExpenses = this.initialValue * this.numberOfShares;
-    this.totalEarnings = 0;
+  constructor(private readonly data: investmentProps) {
+    this.openingPosition = data.totalQuotas * data.openingPrice;
   }
 
-  updateFII(data: string) {
-    this.FII = data;
+  updateSymbol(data: string) {
+    this.symbol = data;
   }
 
-  updateInitialValue(data: number) {
-    this.initialValue = data;
-    this.totalExpenses = data * this.numberOfShares;
+  updateTotalQuotas(data: number) {
+    this.totalQuotas = data;
   }
 
-  updateNumberOfShares(data: number) {
-    this.numberOfShares = data;
-    this.totalExpenses = data * this.initialValue;
+  updateOpeningPrice(data: number) {
+    this.openingPrice = data;
   }
 
-  toJSON(data: InvestmentEntity) {
-    const { FII, initialValue, numberOfShares, totalExpenses } = data;
-    return {
-      FII,
-      initialValue,
-      numberOfShares,
-      totalExpenses,
-    };
+  get symbol(): string {
+    return this.symbol;
   }
 
-  get _FII(): string {
-    return this.FII;
+  private set symbol(data: string) {
+    this.symbol = data;
   }
 
-  private set _FII(data: string) {
-    this.FII = data;
+  get totalQuotas(): number {
+    return this.totalQuotas;
   }
 
-  get _initialValue(): number {
-    return this.initialValue;
+  private set totalQuotas(data: number) {
+    this.totalQuotas = data;
   }
 
-  private set _initialValue(data: number) {
-    this.initialValue = data;
+  get openingPrice(): number {
+    return this.openingPrice;
   }
 
-  get _numberOfShares(): number {
-    return this.numberOfShares;
+  private set openingPrice(data: number) {
+    this.openingPrice = data;
   }
 
-  private set _numberOfShares(data: number) {
-    this.numberOfShares = data;
-  }
-
-  get _finalValue(): number {
-    return this.totalExpenses;
-  }
-
-  private set _finalValue(data: number) {
-    this.totalExpenses = data;
-  }
-
-  get _totalEarnings(): number | undefined {
-    return this.totalEarnings;
-  }
-
-  private set _totalEarnings(data: number) {
-    this.totalEarnings = data;
+  get _openingPosition(): number {
+    return this.openingPosition;
   }
 }
