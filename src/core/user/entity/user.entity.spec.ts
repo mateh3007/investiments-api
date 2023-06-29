@@ -9,10 +9,9 @@ describe("User entity", () => {
     };
 
     const user = new UserEntity(userProps);
-    console.log(user);
     expect(user).toEqual({
       ...user,
-      investments: [],
+      shares: [],
     });
   });
 });

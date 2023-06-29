@@ -12,14 +12,14 @@ export class UserEntity {
   public name: string;
   public email: string;
   private password: string;
-  public investments: InvestmentEntity[] | null;
+  public shares: InvestmentEntity[] | null;
 
   constructor(data: userProps) {
     this.id = randomUUID();
     this.name = data.name;
     this.email = data.email;
     this.password = data.password;
-    this.investments = [];
+    this.shares = [];
   }
 
   updateName(data: string) {
@@ -35,7 +35,16 @@ export class UserEntity {
   }
 
   createInvestment(data: InvestmentEntity) {
-    this.investments?.push(data);
+    this.shares?.push(data);
+  }
+
+  toJSON() {
+    return {
+      id: this.id,
+      name: this.name,
+      email: this.email,
+      shares: this.shares,
+    };
   }
 
   get _name(): string {
@@ -55,6 +64,6 @@ export class UserEntity {
   }
 
   get _investments(): InvestmentEntity[] | null {
-    return this.investments;
+    return this.shares;
   }
 }
