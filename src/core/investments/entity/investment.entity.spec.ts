@@ -2,9 +2,9 @@ import { InvestmentEntity, investmentProps } from "./investment.entity";
 
 describe("Investment entity", () => {
   const investmentProps: investmentProps = {
-    FII: "AAAA",
-    initialValue: 10,
-    numberOfShares: 2,
+    symbol: "AAAA",
+    openingPrice: 20,
+    totalQuotas: 3,
   };
 
   it("Should able create an investment", () => {
@@ -12,31 +12,20 @@ describe("Investment entity", () => {
     console.log(investment);
     expect(investment).toEqual({
       ...investmentProps,
-      finalValue: 20,
+      openingPosition: 60,
     });
   });
 
   it("Should change final value of entity", () => {
     const investment = new InvestmentEntity(investmentProps);
-    investment.updateNumberOfShares(3);
+    investment.updateTotalQuotas(5);
+    console.log(investment);
 
     expect(investment).toEqual({
-      FII: "AAAA",
-      initialValue: 10,
-      numberOfShares: 3,
-      finalValue: 30,
-    });
-  });
-
-  it("Should change final value of entity", () => {
-    const investment = new InvestmentEntity(investmentProps);
-    investment.updateInitialValue(30);
-
-    expect(investment).toEqual({
-      FII: "AAAA",
-      initialValue: 30,
-      numberOfShares: 2,
-      finalValue: 60,
+      symbol: "AAAA",
+      openingPrice: 20,
+      totalQuotas: 5,
+      openingPosition: 100,
     });
   });
 });

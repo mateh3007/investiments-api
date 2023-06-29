@@ -5,9 +5,15 @@ export type investmentProps = {
 };
 
 export class InvestmentEntity {
-  public readonly openingPosition: number;
+  public openingPosition: number;
+  public symbol: string;
+  public totalQuotas: number;
+  public openingPrice: number;
 
-  constructor(private readonly data: investmentProps) {
+  constructor(data: investmentProps) {
+    this.symbol = data.symbol;
+    this.totalQuotas = data.totalQuotas;
+    this.openingPrice = data.openingPrice;
     this.openingPosition = data.totalQuotas * data.openingPrice;
   }
 
@@ -17,33 +23,35 @@ export class InvestmentEntity {
 
   updateTotalQuotas(data: number) {
     this.totalQuotas = data;
+    this.openingPosition = this.openingPrice * this.totalQuotas;
   }
 
   updateOpeningPrice(data: number) {
     this.openingPrice = data;
+    this.openingPosition = this.openingPrice * this.totalQuotas;
   }
 
-  get symbol(): string {
+  get _symbol(): string {
     return this.symbol;
   }
 
-  private set symbol(data: string) {
+  private set _symbol(data: string) {
     this.symbol = data;
   }
 
-  get totalQuotas(): number {
+  get _totalQuotas(): number {
     return this.totalQuotas;
   }
 
-  private set totalQuotas(data: number) {
+  private set _totalQuotas(data: number) {
     this.totalQuotas = data;
   }
 
-  get openingPrice(): number {
+  get _openingPrice(): number {
     return this.openingPrice;
   }
 
-  private set openingPrice(data: number) {
+  private set _openingPrice(data: number) {
     this.openingPrice = data;
   }
 
