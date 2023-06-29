@@ -1,13 +1,13 @@
 export type CreateInvestmentDtoInput = {
-  FII: string;
-  initialValue: number;
-  numberOfShares: number;
+  symbol: string;
+  openingPrice: number;
+  totalQuotas: number;
 };
 
 export type CreateInvestmentDtoOutput = {
-  FII: string;
-  initialValue: number;
-  numberOfShares: number;
+  symbol: string;
+  openingPrice: number;
+  totalQuotas: number;
   createdAt: Date;
   updatedAt: Date;
   deletedAt: Date | null;

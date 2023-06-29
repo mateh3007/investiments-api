@@ -12,16 +12,15 @@ import { InvestmentEntity } from "../../../../core/investments/entity/investment
 import { IInvestmentRepository } from "../../../../core/investments/entity/investment.irepository";
 import { prisma } from "../../ORM/prisma/prisma";
 
+const db: InvestmentEntity[] = [];
+
 export class InvestmentRepositoryInMemory implements IInvestmentRepository {
-  async create(data: InvestmentEntity): Promise<void> {
-    const output = await prisma.investment.create({
-      data: {
-        ...data,
-        totalEarnings: undefined,
-        deletedAt: null,
-      },
-    });
+  async create(data: InvestmentEntity) {
+    db.push(data);
+    console.log(db);
+    return db;
   }
+
   async getOne(
     data: getOneInvestmentDtoInput
   ): Promise<getOneInvestmentDtoOutput | null> {

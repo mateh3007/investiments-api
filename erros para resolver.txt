@@ -1,2 +1,5 @@
 erros para resolver:
 esta retornando deleted como data definida ao invés de null
+
+implementações:
+criar rota com url do user

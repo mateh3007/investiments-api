@@ -11,7 +11,7 @@ import {
 import { InvestmentEntity, investmentProps } from "./investment.entity";
 
 export interface IInvestmentRepository {
-  create(data: InvestmentEntity): Promise<void>;
+  create(data: InvestmentEntity): any;
   getOne(
     data: getOneInvestmentDtoInput
   ): Promise<getOneInvestmentDtoOutput | null>;
